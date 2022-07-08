@@ -2,7 +2,9 @@
 Use db2cmdadmin.exe to open an admin cmd prompt and invoke the DB2 CLP
 - The IBM install directory should be registed in your PATH
 - **`[Win]-R` → `db2cmdadmin`** or open from the IBM install directory
-### [db2 - Command line processor invocation command](https://www.ibm.com/docs/en/db2/11.5?topic=clp-db2-invocation)
+
+**[db2 - Command line processor invocation command](https://www.ibm.com/docs/en/db2/11.5?topic=clp-db2-invocation)**
+
 The db2 command starts the command line processor and can be started in:
 - Interactive input mode, characterized by the `db2 =>` input prompt
 - Command mode, where each command must be prefixed by `db2`
@@ -12,26 +14,26 @@ The db2 command starts the command line processor and can be started in:
 
 ## Variables
 *Replace the following values with the proper values in your environment*
-- **<dbname\>** → The name of your database e.g. `TESTDB`
-- **<user\>** → The db2 user - Typically DB2ADMIN
-- **<password\>** → The user's password
-- **<nodename\>** → The name of the note - Typically NODE0000
-- **<hostname\>** → The hostname or IP address of the DB2 server
-- **<port\>** → The listing port for the DB2 service - Typically 50000
-- **<onlinepath\>** → The full path for your online backups e.g. `L:\DB2Backups\<dbname>\Online`
-- **<offlinepath\>** → The full path for your offline backups e.g. `L:\DB2Backups\<dbname>\Offline`
-- **<activelogpath\>** → The full path for your active logs e.g. `L:\DB2Logs\<dbname>\Active`
-- **<archivelogpath\>** → The full path for your archive logs e.g. `L:\DB2Logs\<dbname>\Archive`
-- **<fullbackuppath\>** → The full path for the backup file, including the filename
-- **<apphandle\>** → Application handle ID from the `db2 list applications` command
-- **<dbdrive\>** → The storage drive on the db2 host where the database resides
-- **<templogpath\>** → Temporary folder to store logs for a roll forward operation (The path must exist before running restore/rollforward command)
-- **<takentimestamp\>** → The timestamp from the backup image - e.g. if the backup filename is `<dbname>.0.DB2.DBPART000.20220707230004.001` then the timestamp would be `20220707230004`
-- **[option]** → Optional parameters
+- **`<dbname>`** → The name of your database e.g. `TESTDB`
+- **`<user>`** → The db2 user - Typically DB2ADMIN
+- **`<password>`** → The user's password
+- **`<nodename>`** → The name of the note - Typically NODE0000
+- **`<hostname>`** → The hostname or IP address of the DB2 server
+- **`<port>`** → The listing port for the DB2 service - Typically 50000
+- **`<onlinepath>`** → The full path for your online backups e.g. `L:\DB2Backups\<dbname>\Online`
+- **`<offlinepath>`** → The full path for your offline backups e.g. `L:\DB2Backups\<dbname>\Offline`
+- **`<activelogpath>`** → The full path for your active logs e.g. `L:\DB2Logs\<dbname>\Active`
+- **`<archivelogpath>`** → The full path for your archive logs e.g. `L:\DB2Logs\<dbname>\Archive`
+- **`<fullbackuppath>`** → The full path for the backup file, including the filename
+- **`<apphandle>`** → Application handle ID from the `db2 list applications` command
+- **`<dbdrive>`** → The storage drive on the db2 host where the database resides
+- **`<templogpath>`** → Temporary folder to store logs for a roll forward operation (The path must exist before running restore/rollforward command)
+- **`<takentimestamp>`** → The timestamp from the backup image - e.g. if the backup filename is `<dbname>.0.DB2.DBPART000.20220707230004.001` then the timestamp would be `20220707230004`
+- **`[option]`** → Optional parameters
 
 ## Basics
 - Commands are **NOT** case-sensitive
-- [List node directory](https://www.ibm.com/docs/en/db2/11.5?topic=commands-list-node-directory) → ```sql db2 list node directory`
+- [List node directory](https://www.ibm.com/docs/en/db2/11.5?topic=commands-list-node-directory) → `db2 list node directory`
 - [List database directory](https://www.ibm.com/docs/en/db2/11.5?topic=commands-list-database-directory) → `db2 list node directory`
 - [Catalog remote node](https://www.ibm.com/docs/en/db2/11.5?topic=commands-catalog-tcpip-node) → `db2 catalog tcpip node <nodename> remote <hostname> server <port>`
 - [Catalog database on locale host]() → `db2 catalog database <dbname> on <dbdrive>`
@@ -78,12 +80,7 @@ There are two types of backups we can perform using DB2 - offline and online
 
 **Generic online backup command**
 
-`db2 backup database <dbname> online to "<onlinepath>" with 2 buffers buffer 1024 parallelism 1 without prompting`
-`db2chkbkp "<fullbackuppath>"`
-
-**With compression**
-
-1. Backup database → `db2 backup database <dbname> online to "<onlinepath>" with 2 buffers buffer 1024 parallelism 1 compress without prompting`
+1. Backup database → `db2 backup database <dbname> online to "<onlinepath>" with 2 buffers buffer 1024 parallelism 1 [compress] without prompting`
 2. Verify backup → `db2chkbkp "<fullbackuppath>"`
 
 ### Offline backup
@@ -114,4 +111,4 @@ There are two types of backups we can perform using DB2 - offline and online
 
 **Generic rollforward command**
 
-`db2 rollforward db <dbname> to end of logs and complete overflow log path (<templogpath>) noretrieve'
+`db2 rollforward db <dbname> to end of logs and complete overflow log path (<templogpath>) noretrieve`
