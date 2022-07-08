@@ -1,4 +1,3 @@
-# DB2 Command Reference
 ## DB2 Command Line Processor / db2cmdadmin.exe
 Use db2cmdadmin.exe to open an admin cmd prompt and invoke the DB2 CLP
 - The IBM install directory should be registed in your PATH
