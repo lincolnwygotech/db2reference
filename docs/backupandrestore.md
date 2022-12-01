@@ -91,8 +91,9 @@ There are two types of backups we can perform using DB2 - offline and online
 5. Backup database → `db2 backup database <dbname> to "<offlinepath>" with 2 buffers buffer 1024 parallelism 1 compress without prompting`
 6. Verify backup → `db2chkbkp "<fullbackuppath>"`
 7. Reactivate database → `db2 activate database <dbname>`
-8. Unquiesce database → `db2 unquiesce database <dbname>`
-9. Test connection to database → `db2 connect to <dbname> user <user> [using "<password>"]`
+8. Connect to the database → `db2 connect to <dbname> user <user> [using "<password>"]`
+9. Unquiesce database → `db2 unquiesce database <dbname>`
+10. Disconnect → `db2 connect reset`
 
 ## [RESTORE DATABASE](https://www.ibm.com/docs/en/db2/11.5?topic=commands-restore-database)
 **Generic restore command**
