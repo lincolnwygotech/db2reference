@@ -89,7 +89,7 @@ There are two types of backups we can perform using DB2 - offline and online
 3. Disconnect from database → `db2 connect reset`
 4. Deactivate database → `db2 deactivate database <dbname>`
 5. Backup database → `db2 backup database <dbname> to "<offlinepath>" with 2 buffers buffer 1024 parallelism 1 compress without prompting`
-6. Verify backup → `db2chkbkp "<fullbackuppath>"`
+6. Verify backup → `db2ckbkp "<fullbackuppath>"`
 7. Reactivate database → `db2 activate database <dbname>`
 8. Connect to the database → `db2 connect to <dbname> user <user> [using "<password>"]`
 9. Unquiesce database → `db2 unquiesce database <dbname>`
