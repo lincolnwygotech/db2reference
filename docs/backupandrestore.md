@@ -98,11 +98,11 @@ There are two types of backups we can perform using DB2 - offline and online
 ## [RESTORE DATABASE](https://www.ibm.com/docs/en/db2/11.5?topic=commands-restore-database)
 **Generic restore command**
 
-`db2 restore database <dbname> from [<offlinepath> / <onlinepath>] taken at <takentimestamp> to C: into <newdbname> newlogpath with 2 buffers buffer 1024 without prompting`
+`db2 restore database <dbname> from [<offlinepath> / <onlinepath>] taken at <takentimestamp> to C: into <newdbname> newlogpath default with 2 buffers buffer 1024 without prompting`
 
 **Restore to a different drive**
 
-`db2 restore database <dbname> from [<offlinepath> / <onlinepath>] taken at <takentimestamp> on C: into <newdbname> newlogpath with 2 buffers buffer 1024 without prompting`
+`db2 restore database <dbname> from [<offlinepath> / <onlinepath>] taken at <takentimestamp> on C: into <newdbname> newlogpath default with 2 buffers buffer 1024 without prompting`
 
 **Restore and extract logs**
 
